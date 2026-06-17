@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wedding Invitation | Abhiram & Divyasri</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="You are cordially invited to celebrate the wedding of Abhiram & Divyasri on June 25th, 2026. Save the date!">
+  <meta name="keywords" content="wedding invitation, Abhiram, Divyasri, VV Gardens, Thorrur, traditional Telugu wedding">
+  
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Wedding Invitation | Abhiram & Divyasri">
+  <meta property="og:description" content="Join us in celebrating the wedding of Abhiram & Divyasri on June 25, 2026.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Ambient Music Player -->
+  <audio id="bgMusic" loop preload="auto">
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" type="audio/mp3">
+  </audio>
+
+  <!-- Floating Controls (Language & Music) -->
+  <div class="floating-controls" id="floatingControls" style="display:none;">
+    <button class="lang-btn" id="langBtn" aria-label="Switch Language">
+      <i class="fa-solid fa-language"></i>
+      <span class="lang-text">తెలుగు</span>
+    </button>
+    <button class="music-btn" id="musicBtn" aria-label="Toggle Music">
+      <i class="fas fa-music"></i>
+      <div class="music-wave" id="musicWave">
+        <span></span><span></span><span></span>
+      </div>
+    </button>
+  </div>
+
+  <!-- Falling Petals -->
+  <div class="petals-container" id="petalsContainer" style="display:none;"></div>
+
+  <!-- Custom Cursor -->
+  <div class="custom-cursor" id="customCursor"></div>
+  <div class="custom-cursor-dot" id="customCursorDot"></div>
+
+  <!-- ================================================================== -->
+  <!-- CARD COVER SCREEN (shown first) -->
+  <!-- ================================================================== -->
+  <div class="card-cover-screen" id="cardCoverScreen">
+    
+    <!-- Background ambient particles -->
+    <div class="ambient-bg">
+      <div class="bg-circle bc1"></div>
+      <div class="bg-circle bc2"></div>
+      <div class="bg-circle bc3"></div>
+    </div>
+
+    <!-- Falling flower petals on cover -->
+    <div class="cover-petals" id="coverPetals"></div>
+
+    <!-- The Card Itself -->
+    <div class="invitation-card-wrapper" id="invitationCardWrapper">
+      <div class="invitation-card" id="invitationCard">
+        
+        <!-- Card Front (Closed State) -->
+        <div class="card-face card-front">
+          
+          <!-- Decorative top arch / temple gopuram -->
+          <div class="card-arch-top">
+            <svg viewBox="0 0 400 80" preserveAspectRatio="none" class="arch-svg">
+              <!-- Arch shape -->
+              <path d="M0,80 L0,40 Q50,0 100,30 Q150,55 200,20 Q250,55 300,30 Q350,0 400,40 L400,80 Z" fill="#7c1224"/>
+              <!-- Gold trim on arch -->
+              <path d="M0,80 L0,42 Q50,3 100,32 Q150,57 200,22 Q250,57 300,32 Q350,3 400,42 L400,80" fill="none" stroke="#d4af37" stroke-width="1.5"/>
+              <!-- Decorative dots on arch -->
+              <circle cx="100" cy="32" r="3" fill="#d4af37"/>
+              <circle cx="200" cy="22" r="4" fill="#d4af37"/>
+              <circle cx="300" cy="32" r="3" fill="#d4af37"/>
+              <circle cx="50" cy="52" r="2" fill="#d4af37" opacity="0.7"/>
+              <circle cx="150" cy="43" r="2" fill="#d4af37" opacity="0.7"/>
+              <circle cx="250" cy="43" r="2" fill="#d4af37" opacity="0.7"/>
+              <circle cx="350" cy="52" r="2" fill="#d4af37" opacity="0.7"/>
+            </svg>
+          </div>
+
+          <!-- Ornamental border frame -->
+          <div class="card-inner-frame">
+
+            <!-- Corner ornaments SVGs -->
+            <div class="ornament-corner oc-tl">
+              <svg viewBox="0 0 60 60" width="60" height="60">
+                <path d="M5,55 L5,5 L55,5" fill="none" stroke="#d4af37" stroke-width="2"/>
+                <path d="M12,48 L12,12 L48,12" fill="none" stroke="#d4af37" stroke-width="1" opacity="0.5"/>
+                <circle cx="5" cy="5" r="3" fill="#d4af37"/>
+                <path d="M5,25 Q20,5 25,5" fill="none" stroke="#d4af37" stroke-width="1.5"/>
+                <path d="M25,5 Q5,5 5,25" fill="none" stroke="#d4af37" stroke-width="1.5"/>
+                <circle cx="15" cy="15" r="2" fill="#d4af37" opacity="0.6"/>
+              </svg>
+            </div>
+            <div class="ornament-corner oc-tr">
+              <svg viewBox="0 0 60 60" width="60" height="60">
+                <path d="M55,55 L55,5 L5,5" fill="none" stroke="#d4af37" stroke-width="2"/>
+                <path d="M48,48 L48,12 L12,12" fill="none" stroke="#d4af37" stroke-width="1" opacity="0.5"/>
+                <circle cx="55" cy="5" r="3" fill="#d4af37"/>
+                <path d="M55,25 Q40,5 35,5" fill="none" stroke="#d4af37" stroke-width="1.5"/>
+                <path d="M35,5 Q55,5 55,25" fill="none" stroke="#d4af37" stroke-width="1.5"/>
+                <circle cx="45" cy="15" r="2" fill="#d4af37" opacity="0.6"/>
+              </svg>
+            </div>
+            <div class="ornament-corner oc-bl">
+              <svg viewBox="0 0 60 60" width="60" height="60">
+                <path d="M5,5 L5,55 L55,55" fill="none" stroke="#d4af37" stroke-width="2"/>
+                <path d="M12,12 L12,48 L48,48" fill="none" stroke="#d4af37" stroke-width="1" opacity="0.5"/>
+                <circle cx="5" cy="55" r="3" fill="#d4af37"/>
+                <circle cx="15" cy="45" r="2" fill="#d4af37" opacity="0.6"/>
+              </svg>
+            </div>
+            <div class="ornament-corner oc-br">
+              <svg viewBox="0 0 60 60" width="60" height="60">
+                <path d="M55,5 L55,55 L5,55" fill="none" stroke="#d4af37" stroke-width="2"/>
+                <path d="M48,12 L48,48 L12,48" fill="none" stroke="#d4af37" stroke-width="1" opacity="0.5"/>
+                <circle cx="55" cy="55" r="3" fill="#d4af37"/>
+                <circle cx="45" cy="45" r="2" fill="#d4af37" opacity="0.6"/>
+              </svg>
+            </div>
+
+            <!-- Ganesha Icon at top center -->
+            <div class="card-ganesha">
+              <svg viewBox="0 0 120 120" width="90" height="90">
+                <!-- Halo ring -->
+                <circle cx="60" cy="55" r="38" fill="none" stroke="#d4af37" stroke-width="1" stroke-dasharray="4,3" opacity="0.6"/>
+                <!-- Body -->
+                <ellipse cx="60" cy="70" rx="22" ry="25" fill="none" stroke="#d4af37" stroke-width="2"/>
+                <!-- Head -->
+                <ellipse cx="60" cy="42" rx="18" ry="16" fill="none" stroke="#d4af37" stroke-width="2"/>
+                <!-- Left ear -->
+                <ellipse cx="38" cy="42" rx="10" ry="13" fill="none" stroke="#d4af37" stroke-width="1.5"/>
+                <!-- Right ear -->
+                <ellipse cx="82" cy="42" rx="10" ry="13" fill="none" stroke="#d4af37" stroke-width="1.5"/>
+                <!-- Trunk curling left -->
+                <path d="M55,55 C55,68 42,72 42,80 C42,85 47,87 52,84" fill="none" stroke="#d4af37" stroke-width="2" stroke-linecap="round"/>
+                <!-- Eyes -->
+                <circle cx="53" cy="40" r="2.5" fill="#d4af37"/>
+                <circle cx="67" cy="40" r="2.5" fill="#d4af37"/>
+                <!-- Tusk left -->
+                <path d="M50,54 C45,58 40,55 38,60" fill="none" stroke="#d4af37" stroke-width="2" stroke-linecap="round"/>
+                <!-- Crown -->
+                <path d="M44,30 L50,18 L60,24 L70,18 L76,30" fill="none" stroke="#d4af37" stroke-width="2"/>
+                <circle cx="60" cy="24" r="3" fill="#d4af37"/>
+                <!-- Arms -->
+                <path d="M38,72 L30,62" stroke="#d4af37" stroke-width="2" stroke-linecap="round"/>
+                <path d="M82,72 L90,62" stroke="#d4af37" stroke-width="2" stroke-linecap="round"/>
+                <!-- Modak in left hand -->
+                <circle cx="27" cy="60" r="5" fill="none" stroke="#d4af37" stroke-width="1.5"/>
+                <!-- Blessings in right hand - lotus -->
+                <path d="M90,60 C90,54 96,54 96,58 C96,62 90,64 87,62" fill="none" stroke="#d4af37" stroke-width="1.5"/>
+              </svg>
+            </div>
+
+            <!-- Auspicious text -->
+            <p class="card-auspicious-text">|| శ్రీ గణేశాయ నమః ||</p>
+
+            <!-- Divider garland -->
+            <div class="card-divider-garland">
+              <svg viewBox="0 0 300 20" class="garland-svg">
+                <path d="M0,10 Q15,2 30,10 Q45,18 60,10 Q75,2 90,10 Q105,18 120,10 Q135,2 150,10 Q165,18 180,10 Q195,2 210,10 Q225,18 240,10 Q255,2 270,10 Q285,18 300,10" fill="none" stroke="#d4af37" stroke-width="1.5"/>
+                <circle cx="30" cy="10" r="3" fill="#ff9100"/>
+                <circle cx="90" cy="10" r="3" fill="#ff4500"/>
+                <circle cx="150" cy="10" r="4" fill="#d4af37"/>
+                <circle cx="210" cy="10" r="3" fill="#ff4500"/>
+                <circle cx="270" cy="10" r="3" fill="#ff9100"/>
+              </svg>
+            </div>
+
+            <!-- Couple names on card front -->
+            <div class="card-front-names">
+              <span class="card-name-groom">Abhiram</span>
+              <div class="card-ampersand-wrapper">
+                <svg viewBox="0 0 60 60" width="50" height="50">
+                  <circle cx="30" cy="30" r="25" fill="none" stroke="#d4af37" stroke-width="1"/>
+                  <text x="30" y="38" text-anchor="middle" font-family="'Alex Brush', cursive" font-size="28" fill="#d4af37">&amp;</text>
+                </svg>
+              </div>
+              <span class="card-name-bride">Divyasri</span>
+            </div>
+
+            <!-- Wedding date on card -->
+            <div class="card-front-date-wrapper">
+              <div class="date-line-left"></div>
+              <div class="card-front-date">
+                <span class="date-day">25</span>
+                <span class="date-month-year">JUNE · 2026</span>
+              </div>
+              <div class="date-line-right"></div>
+            </div>
+
+            <!-- Bottom divider -->
+            <div class="card-divider-garland">
+              <svg viewBox="0 0 300 20" class="garland-svg">
+                <path d="M0,10 Q15,18 30,10 Q45,2 60,10 Q75,18 90,10 Q105,2 120,10 Q135,18 150,10 Q165,2 180,10 Q195,18 210,10 Q225,2 240,10 Q255,18 270,10 Q285,2 300,10" fill="none" stroke="#d4af37" stroke-width="1.5"/>
+                <circle cx="30" cy="10" r="3" fill="#ff9100"/>
+                <circle cx="90" cy="10" r="3" fill="#ff4500"/>
+                <circle cx="150" cy="10" r="4" fill="#d4af37"/>
+                <circle cx="210" cy="10" r="3" fill="#ff4500"/>
+                <circle cx="270" cy="10" r="3" fill="#ff9100"/>
+              </svg>
+            </div>
+
+            <!-- Click to open prompt -->
+            <div class="card-open-prompt">
+              <div class="open-pulse-ring"></div>
+              <div class="open-pulse-ring ring2"></div>
+              <i class="fa-solid fa-envelope-open-text"></i>
+              <span data-translate="cover-open-prompt">Tap to Open Invitation</span>
+            </div>
+
+          </div><!-- end card-inner-frame -->
+
+          <!-- Decorative bottom arch -->
+          <div class="card-arch-bottom">
+            <svg viewBox="0 0 400 60" preserveAspectRatio="none" class="arch-svg-bottom">
+              <path d="M0,0 L0,20 Q100,60 200,40 Q300,60 400,20 L400,0 Z" fill="#7c1224"/>
+              <path d="M0,0 L0,18 Q100,58 200,38 Q300,58 400,18" fill="none" stroke="#d4af37" stroke-width="1.5"/>
+              <circle cx="200" cy="38" r="3" fill="#d4af37"/>
+            </svg>
+          </div>
+
+        </div><!-- end card-front -->
+      </div><!-- end invitation-card -->
+    </div><!-- end invitation-card-wrapper -->
+
+    <!-- Hint text below card -->
+    <p class="cover-hint-text" id="coverHintText">
+      <i class="fa-solid fa-hand-pointer"></i> <span data-translate="cover-hint">Click the card to open your invitation</span>
+    </p>
+  </div><!-- end card-cover-screen -->
+
+
+  <!-- ================================================================== -->
+  <!-- MAIN INVITATION CONTENT (revealed after card opens) -->
+  <!-- ================================================================== -->
+  <div class="main-invitation" id="mainInvitation" style="display:none; opacity:0;">
+
+    <!-- Scroll-to-top button -->
+    <button class="scroll-top-btn" id="scrollTopBtn" aria-label="Scroll to top">
+      <i class="fa-solid fa-chevron-up"></i>
+    </button>
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="section hero-section">
+
+      <!-- Toran garland at top -->
+      <div class="toran-garland">
+        <svg viewBox="0 0 1200 120" class="toran-svg" preserveAspectRatio="none">
+          <path d="M0,10 Q150,40 300,10 Q450,40 600,10 Q750,40 900,10 Q1050,40 1200,10" fill="none" stroke="#b8860b" stroke-width="1.5"/>
+          <path d="M0,20 Q150,50 300,20 Q450,50 600,20 Q750,50 900,20 Q1050,50 1200,20" fill="none" stroke="#ff9100" stroke-width="1" stroke-dasharray="5,5"/>
+          <g class="hanging-element" transform="translate(100, 0)">
+            <line x1="0" y1="20" x2="0" y2="70" stroke="#ffb300" stroke-width="2"/>
+            <circle cx="0" cy="40" r="8" fill="#ff9100"/><circle cx="0" cy="55" r="8" fill="#ffb300"/>
+            <circle cx="0" cy="70" r="10" fill="#ff4500"/>
+            <path d="M-8,70 L0,90 L8,70 Z" fill="#2e8b57"/>
+          </g>
+          <g class="hanging-element" transform="translate(250, 0)">
+            <line x1="0" y1="20" x2="0" y2="50" stroke="#ffb300" stroke-width="2"/>
+            <circle cx="0" cy="30" r="8" fill="#ff9100"/><circle cx="0" cy="42" r="8" fill="#ffb300"/>
+            <circle cx="0" cy="50" r="10" fill="#ff4500"/>
+            <path d="M-8,50 L0,70 L8,50 Z" fill="#2e8b57"/>
+          </g>
+          <g class="hanging-element" transform="translate(400, 0)">
+            <line x1="0" y1="20" x2="0" y2="85" stroke="#ffb300" stroke-width="2"/>
+            <circle cx="0" cy="35" r="8" fill="#ff9100"/><circle cx="0" cy="50" r="8" fill="#ffb300"/>
+            <circle cx="0" cy="65" r="8" fill="#ff9100"/><circle cx="0" cy="78" r="8" fill="#ffb300"/>
+            <circle cx="0" cy="85" r="10" fill="#ff4500"/>
+            <path d="M-8,85 L0,105 L8,85 Z" fill="#2e8b57"/>
+          </g>
+          <g class="hanging-element" transform="translate(600, 0)">
+            <line x1="0" y1="20" x2="0" y2="100" stroke="#ffb300" stroke-width="2"/>
+            <circle cx="0" cy="40" r="9" fill="#ff9100"/><circle cx="0" cy="60" r="9" fill="#ffb300"/>
+            <circle cx="0" cy="80" r="9" fill="#ff9100"/><circle cx="0" cy="100" r="11" fill="#ff4500"/>
+            <path d="M-10,100 L0,120 L10,100 Z" fill="#2e8b57"/>
+          </g>
+          <g class="hanging-element" transform="translate(800, 0)">
+            <line x1="0" y1="20" x2="0" y2="85" stroke="#ffb300" stroke-width="2"/>
+            <circle cx="0" cy="35" r="8" fill="#ff9100"/><circle cx="0" cy="50" r="8" fill="#ffb300"/>
+            <circle cx="0" cy="65" r="8" fill="#ff9100"/><circle cx="0" cy="78" r="8" fill="#ffb300"/>
+            <circle cx="0" cy="85" r="10" fill="#ff4500"/>
+            <path d="M-8,85 L0,105 L8,85 Z" fill="#2e8b57"/>
+          </g>
+          <g class="hanging-element" transform="translate(950, 0)">
+            <line x1="0" y1="20" x2="0" y2="50" stroke="#ffb300" stroke-width="2"/>
+            <circle cx="0" cy="30" r="8" fill="#ff9100"/><circle cx="0" cy="42" r="8" fill="#ffb300"/>
+            <circle cx="0" cy="50" r="10" fill="#ff4500"/>
+            <path d="M-8,50 L0,70 L8,50 Z" fill="#2e8b57"/>
+          </g>
+          <g class="hanging-element" transform="translate(1100, 0)">
+            <line x1="0" y1="20" x2="0" y2="70" stroke="#ffb300" stroke-width="2"/>
+            <circle cx="0" cy="40" r="8" fill="#ff9100"/><circle cx="0" cy="55" r="8" fill="#ffb300"/>
+            <circle cx="0" cy="70" r="10" fill="#ff4500"/>
+            <path d="M-8,70 L0,90 L8,70 Z" fill="#2e8b57"/>
+          </g>
+        </svg>
+      </div>
+
+      <div class="hero-content">
+        <!-- Ganesha -->
+        <div class="ganesha-wrapper animate-text">
+          <svg viewBox="0 0 120 120" class="ganesha-svg" width="90" height="90">
+            <circle cx="60" cy="55" r="38" fill="none" stroke="var(--color-gold)" stroke-width="1" stroke-dasharray="4,3" opacity="0.6"/>
+            <ellipse cx="60" cy="70" rx="22" ry="25" fill="none" stroke="var(--color-gold)" stroke-width="2"/>
+            <ellipse cx="60" cy="42" rx="18" ry="16" fill="none" stroke="var(--color-gold)" stroke-width="2"/>
+            <ellipse cx="38" cy="42" rx="10" ry="13" fill="none" stroke="var(--color-gold)" stroke-width="1.5"/>
+            <ellipse cx="82" cy="42" rx="10" ry="13" fill="none" stroke="var(--color-gold)" stroke-width="1.5"/>
+            <path d="M55,55 C55,68 42,72 42,80 C42,85 47,87 52,84" fill="none" stroke="var(--color-gold)" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="53" cy="40" r="2.5" fill="var(--color-gold)"/>
+            <circle cx="67" cy="40" r="2.5" fill="var(--color-gold)"/>
+            <path d="M50,54 C45,58 40,55 38,60" fill="none" stroke="var(--color-gold)" stroke-width="2" stroke-linecap="round"/>
+            <path d="M44,30 L50,18 L60,24 L70,18 L76,30" fill="none" stroke="var(--color-gold)" stroke-width="2"/>
+            <circle cx="60" cy="24" r="3" fill="var(--color-gold)"/>
+            <path d="M38,72 L30,62" stroke="var(--color-gold)" stroke-width="2" stroke-linecap="round"/>
+            <path d="M82,72 L90,62" stroke="var(--color-gold)" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="27" cy="60" r="5" fill="none" stroke="var(--color-gold)" stroke-width="1.5"/>
+          </svg>
+        </div>
+
+        <div class="monogram-wreath animate-text delay-1">
+          <div class="monogram-initials">AD</div>
+        </div>
+
+        <h1 class="hero-title animate-text delay-1" data-translate="save-the-date">Save the Date</h1>
+        <p class="hero-subtitle animate-text delay-2" data-translate="wedding-celebration">For the Wedding Celebration of</p>
+
+        <div class="couple-names animate-text delay-3">
+          <span>Abhiram</span>
+          <span class="ampersand">&amp;</span>
+          <span>Divyasri</span>
+        </div>
+
+        <div class="traditional-instruments animate-text delay-4">
+          <svg viewBox="0 0 200 30" class="shehnai-svg">
+            <path d="M10,15 L140,8 L160,3 L170,15 L160,27 L140,22 Z" fill="none" stroke="var(--color-gold)" stroke-width="1.5"/>
+            <circle cx="160" cy="15" r="6" fill="none" stroke="var(--color-gold)" stroke-width="1.5"/>
+            <line x1="40" y1="13" x2="40" y2="17" stroke="var(--color-gold)" stroke-width="1.5"/>
+            <line x1="70" y1="12" x2="70" y2="18" stroke="var(--color-gold)" stroke-width="1.5"/>
+            <line x1="100" y1="10" x2="100" y2="20" stroke="var(--color-gold)" stroke-width="1.5"/>
+            <!-- Divider -->
+            <text x="185" y="20" font-size="18" fill="var(--color-gold)" font-family="serif">✦</text>
+          </svg>
+        </div>
+
+        <p class="hero-date animate-text delay-4">25 · 06 · 2026</p>
+
+        <button class="enter-btn animate-text delay-5" onclick="scrollToSection('invite-text-section')">
+          <span data-translate="explore-invite">Explore Invitation</span>
+          <i class="fa-solid fa-chevron-down scroll-arrow"></i>
+        </button>
+      </div>
+    </section>
+
+    <!-- INVITATION TEXT SECTION -->
+    <section id="invite-text-section" class="section invite-text-section scroll-animate">
+      <div class="container">
+        <div class="traditional-frame">
+          <div class="frame-content">
+            <div class="small-ganesha">
+              <svg viewBox="0 0 100 100" width="60" height="60">
+                <ellipse cx="50" cy="60" rx="18" ry="20" fill="none" stroke="var(--color-primary)" stroke-width="2"/>
+                <ellipse cx="50" cy="36" rx="14" ry="13" fill="none" stroke="var(--color-primary)" stroke-width="2"/>
+                <ellipse cx="32" cy="36" rx="8" ry="10" fill="none" stroke="var(--color-primary)" stroke-width="1.5"/>
+                <ellipse cx="68" cy="36" rx="8" ry="10" fill="none" stroke="var(--color-primary)" stroke-width="1.5"/>
+                <path d="M46,47 C46,56 38,60 38,66" fill="none" stroke="var(--color-primary)" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h2 class="shubh-vivah-heading">|| శ్రీరస్తు శుభమస్తు అవిఘ్నమస్తు ||</h2>
+            
+            <p class="invite-announcement" data-translate="announcement">
+              With the divine blessings of Almighty, we cordially invite you to join us 
+              and celebrate the auspicious occasion of the marriage ceremony of our beloved children.
+            </p>
+
+            <!-- Framed Portrait of the Couple -->
+            <div class="couple-portrait-wrapper">
+              <div class="couple-portrait-frame">
+                <img src="images/couple.jpg" alt="Abhiram & Divyasri" class="couple-portrait-img">
+              </div>
+            </div>
+
+            <div class="couple-profile-row">
+              <div class="profile-side">
+                <span class="family-label" data-translate="groom">Groom</span>
+                <h3 class="profile-name">Abhiram</h3>
+                <span class="parent-label" data-translate="son-of">Son of</span>
+                <p class="parent-names" data-translate="groom-parents" data-translate-html="true">Mrs. Padma &amp; Mr. Janardhan</p>
+              </div>
+              <div class="profile-divider">
+                <div class="heart-ring-icon"><i class="fa-solid fa-heart"></i></div>
+              </div>
+              <div class="profile-side">
+                <span class="family-label" data-translate="bride">Bride</span>
+                <h3 class="profile-name">Divyasri</h3>
+                <span class="parent-label" data-translate="daughter-of">Daughter of</span>
+                <p class="parent-names" data-translate="bride-parents" data-translate-html="true">Mrs. Srilatha &amp; Mr. Ramesh</p>
+              </div>
+            </div>
+            <p class="invite-conclusion" data-translate="invite-conclusion">Let's gather to shower our blessings upon the couple as they begin their lifetime journey together.</p>
+          </div>
+          <div class="corner-gold top-left"></div>
+          <div class="corner-gold top-right"></div>
+          <div class="corner-gold bottom-left"></div>
+          <div class="corner-gold bottom-right"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COUNTDOWN SECTION -->
+    <section id="countdown-section" class="section countdown-section scroll-animate">
+      <div class="overlay"></div>
+      <!-- Decorative rangoli SVG -->
+      <div class="countdown-rangoli">
+        <svg viewBox="0 0 200 200" width="180" height="180" opacity="0.12">
+          <circle cx="100" cy="100" r="90" fill="none" stroke="#d4af37" stroke-width="1"/>
+          <circle cx="100" cy="100" r="70" fill="none" stroke="#d4af37" stroke-width="1"/>
+          <circle cx="100" cy="100" r="50" fill="none" stroke="#d4af37" stroke-width="1"/>
+          <circle cx="100" cy="100" r="5" fill="#d4af37"/>
+          <line x1="100" y1="10" x2="100" y2="190" stroke="#d4af37" stroke-width="0.5"/>
+          <line x1="10" y1="100" x2="190" y2="100" stroke="#d4af37" stroke-width="0.5"/>
+          <line x1="36" y1="36" x2="164" y2="164" stroke="#d4af37" stroke-width="0.5"/>
+          <line x1="164" y1="36" x2="36" y2="164" stroke="#d4af37" stroke-width="0.5"/>
+          <polygon points="100,20 115,90 190,100 115,110 100,180 85,110 10,100 85,90" fill="none" stroke="#d4af37" stroke-width="1"/>
+        </svg>
+      </div>
+      <div class="container">
+        <h2 class="countdown-title" data-translate="days-until">Days until we tie the knot</h2>
+        <div class="countdown-container" id="countdown" data-date="2026-06-25T09:15:00">
+          <div class="time-block">
+            <span class="time-num" id="days">00</span>
+            <span class="time-label" data-translate="days">Days</span>
+          </div>
+          <div class="time-block">
+            <span class="time-num" id="hours">00</span>
+            <span class="time-label" data-translate="hours">Hours</span>
+          </div>
+          <div class="time-block">
+            <span class="time-num" id="minutes">00</span>
+            <span class="time-label" data-translate="minutes">Minutes</span>
+          </div>
+          <div class="time-block">
+            <span class="time-num" id="seconds">00</span>
+            <span class="time-label" data-translate="seconds">Seconds</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CALENDAR SECTION -->
+    <section id="calendar-section" class="section calendar-section scroll-animate">
+      <div class="container">
+        <h2 class="section-title" data-translate="save-the-date">Save The Date</h2>
+        <div class="calendar-wrapper">
+          <div class="calendar-img-card">
+            <div class="calendar-overlay-card">
+              <div class="monogram-mini">AD</div>
+              <h3 class="calendar-month-title" id="calendarMonthTitle" data-translate="calendar-month">JUNE 2026</h3>
+              <div class="calendar-grid">
+                <div class="day-name" data-translate="day-mon">MON</div>
+                <div class="day-name" data-translate="day-tue">TUE</div>
+                <div class="day-name" data-translate="day-wed">WED</div>
+                <div class="day-name" data-translate="day-thu">THU</div>
+                <div class="day-name" data-translate="day-fri">FRI</div>
+                <div class="day-name" data-translate="day-sat">SAT</div>
+                <div class="day-name text-accent" data-translate="day-sun">SUN</div>
+                <div class="day-number">1</div><div class="day-number">2</div><div class="day-number">3</div>
+                <div class="day-number">4</div><div class="day-number">5</div><div class="day-number">6</div>
+                <div class="day-number">7</div>
+                <div class="day-number">8</div><div class="day-number">9</div><div class="day-number">10</div>
+                <div class="day-number">11</div><div class="day-number">12</div><div class="day-number">13</div>
+                <div class="day-number">14</div>
+                <div class="day-number">15</div><div class="day-number">16</div><div class="day-number">17</div>
+                <div class="day-number">18</div><div class="day-number">19</div><div class="day-number">20</div>
+                <div class="day-number">21</div>
+                <div class="day-number">22</div><div class="day-number">23</div><div class="day-number">24</div>
+                <div class="day-number circled-date" id="weddingDateMark">
+                  25
+                  <svg class="heart-pulse-svg" viewBox="0 0 32 32">
+                    <path d="M16,28.261l-1.921-1.748C6.915,19.988,2,15.534,2,10.088C2,5.643,5.643,2,10.088,2c2.51,0,4.919,1.168,6.5,3.003C18.173,3.168,20.582,2,23.092,2C27.537,2,31,5.643,31,10.088c0,5.446-4.915,9.9-12.079,16.425L16,28.261z"/>
+                  </svg>
+                </div>
+                <div class="day-number">26</div><div class="day-number">27</div><div class="day-number">28</div>
+                <div class="day-number">29</div><div class="day-number">30</div>
+                <div class="day-empty"></div><div class="day-empty"></div><div class="day-empty"></div>
+                <div class="day-empty"></div><div class="day-empty"></div>
+              </div>
+              <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Wedding+of+Abhiram+%26+Divyasri&dates=20260625T034500Z/20260625T120000Z&details=Wedding+at+VV+Gardens,+Thorrur.&location=VV+Gardens,+Ailapur+Road,+Thorrur" target="_blank" class="add-cal-btn" data-translate="save-date-btn">
+                <i class="fa-solid fa-calendar-plus"></i> Add to Google Calendar
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EVENT DETAILS SECTION -->
+    <section id="details" class="section details-section scroll-animate">
+      <div class="container">
+        <h2 class="section-title" data-translate="muhurtham-title">The Wedding Muhurtham</h2>
+        <div class="details-single-wrapper">
+          <div class="event-card spotlight">
+            <div class="card-badge" data-translate="muhurtham-badge">Auspicious Muhurtham</div>
+            <div class="event-icon">
+              <svg viewBox="0 0 100 100" width="80" height="80" class="kalash-svg">
+                <path d="M40,55 C40,48 45,45 50,45 C55,45 60,48 60,55 C60,65 57,75 50,75 C43,75 40,65 40,55 Z" fill="none" stroke="var(--color-primary)" stroke-width="2"/>
+                <path d="M35,45 L65,45 L60,35 L40,35 Z" fill="none" stroke="var(--color-primary)" stroke-width="2"/>
+                <path d="M38,35 C38,30 45,20 50,20 C55,20 62,30 62,35" fill="none" stroke="var(--color-primary)" stroke-width="2"/>
+                <path d="M42,35 L30,22" stroke="var(--color-primary)" stroke-width="2"/>
+                <path d="M58,35 L70,22" stroke="var(--color-primary)" stroke-width="2"/>
+                <path d="M50,35 L50,15" stroke="var(--color-primary)" stroke-width="2"/>
+                <path d="M45,22 C45,17 50,10 50,10 C50,10 55,17 55,22 Z" fill="none" stroke="var(--color-gold)" stroke-width="2"/>
+                <path d="M47,55 L53,55 M50,52 L50,58" stroke="var(--color-primary)" stroke-width="1.5"/>
+              </svg>
+            </div>
+            <h3 class="event-title" data-translate="muhurtham-union">Marriage Union</h3>
+            <div class="event-divider"></div>
+            <div class="muhurtham-time-box">
+              <p class="event-time-date" data-translate="muhurtham-time" data-translate-html="true">
+                <i class="fa-regular fa-calendar-days"></i> Thursday, June 25, 2026 <br>
+                <i class="fa-regular fa-clock"></i> Muhurtham: 09:15 AM <br>
+                <span class="traditional-calendar-note">(స్వస్తిశ్రీ చాంద్రమానేన శ్రీ పరాభవ నామ సంవత్సర జ్యేష్ఠ మాస శుద్ధ ఏకాదశి స్వాతి నక్షత్రయుక్త కర్కాటక లగ్న పుష్కరాంశ సుముహూర్తమున)</span>
+              </p>
+            </div>
+            <p class="event-location">
+              <strong data-translate="venue-title">P.B. Gardens (పి.బి. గార్డెన్స్)</strong> <br>
+              <span data-translate="venue-address" data-translate-html="true">Ailapur Road, Korutla, <br>Jagtial District, Telangana</span>
+            </p>
+            <div class="feast-info">
+              <i class="fa-solid fa-utensils"></i>
+              <span data-translate="feast-info">Sumptuous Festive Lunch follows immediately after the marriage ceremony (వివాహానంతర విందు)</span>
+            </div>
+            <a href="https://maps.app.goo.gl/S8T348WWRRD3zM1FA?g_st=ic" target="_blank" class="map-link-btn gold-btn" data-translate="navigate-btn">
+              <i class="fa-solid fa-map-location-dot"></i> Navigate to Venue
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAMILY SECTION -->
+    <section id="family" class="section family-section scroll-animate">
+      <div class="container">
+        <h2 class="section-title" data-translate="compliments-title">With Best Compliments</h2>
+        <div class="family-card-container">
+          
+          <div class="family-block">
+            <h3 class="family-group-title" data-translate="inviters-title">Cordial Inviters</h3>
+            <p class="family-names-list" data-translate="greetings-parents-list" data-translate-html="true">
+              <strong>Mrs. &amp; Mr. Durishetti Padma-Janardhan</strong> <br>
+              <strong>Mrs. &amp; Mr. Pabboji Srilatha-Ramesh</strong>
+            </p>
+          </div>
+
+          <div class="family-block">
+            <h3 class="family-group-title" data-translate="co-inviters-title">Co-Inviters</h3>
+            <p class="family-names-list" data-translate="co-inviters-list" data-translate-html="true">
+              <strong>Mrs. &amp; Mr. Bejjarapu Ramya-Maruthi</strong>
+            </p>
+          </div>
+
+          <div class="family-block shadow-box">
+            <h3 class="family-group-title" data-translate="grandparents-blessings-title">Grandparents' Blessings</h3>
+            <p class="family-names-list" data-translate="greetings-grandparents" data-translate-html="true">
+              Late Mrs. &amp; Mr. Durishetti Rambai-hanumandlu <br>
+              Late Mr. Pusala Narsaiah &amp; Mrs. Achamma, Bhagya
+            </p>
+          </div>
+
+          <div class="family-block shadow-box">
+            <h3 class="family-group-title" data-translate="greetings-title">Warm Greetings</h3>
+            <p class="family-names-list">
+              <span data-translate="greetings-harish">Harthik, Hemanth</span> <br>
+              <span data-translate="greetings-mahichandra">Mahichandhana, Karthika, Vennela, Srinika, Adyasri</span> <br>
+             <!-- <span data-translate="greetings-grandkids">Venu, and Relatives &amp; Friends</span> -->
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- THANK YOU SECTION -->
+    <section id="thankyou" class="section thankyou-section scroll-animate">
+      <div class="container">
+        <div class="thank-you-card-traditional">
+          <div class="thank-you-traditional-content">
+            <svg viewBox="0 0 100 100" width="80" height="80" class="closing-motif">
+              <path d="M50,15 L50,85 M15,50 L85,50 M15,50 L15,85 M85,50 L85,15 M50,15 L15,15 M50,85 L85,85" fill="none" stroke="var(--color-gold)" stroke-width="3" stroke-linecap="square"/>
+              <circle cx="32" cy="32" r="3" fill="var(--color-gold)"/>
+              <circle cx="68" cy="32" r="3" fill="var(--color-gold)"/>
+              <circle cx="32" cy="68" r="3" fill="var(--color-gold)"/>
+              <circle cx="68" cy="68" r="3" fill="var(--color-gold)"/>
+            </svg>
+            <h2 class="thank-you-title" data-translate="thankyou-title">ధన్యవాదములు</h2>
+            <p class="thank-you-sub" data-translate="thankyou-sub">Thank You</p>
+            <p class="closing-blessing" data-translate="thankyou-blessing">"We await your gracious presence to bless our new beginning."</p>
+            <div class="monogram-large">AD</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PHOTO GALLERY SECTION -->
+    <section id="photo-gallery" class="section photo-gallery-section scroll-animate">
+      <div class="container">
+        <h2 class="section-title" data-translate="gallery-title">Cherished Moments</h2>
+        <div class="gallery-gold-divider">
+          <svg viewBox="0 0 400 20" class="gallery-divider-svg">
+            <path d="M0,10 Q50,2 100,10 Q150,18 200,10 Q250,2 300,10 Q350,18 400,10" fill="none" stroke="#d4af37" stroke-width="1.5"/>
+            <circle cx="200" cy="10" r="4" fill="#d4af37"/>
+            <circle cx="100" cy="10" r="3" fill="#d4af37" opacity="0.7"/>
+            <circle cx="300" cy="10" r="3" fill="#d4af37" opacity="0.7"/>
+          </svg>
+        </div>
+        <div class="gallery-grid">
+
+          <!-- Couple Photo -->
+          <div class="gallery-item gallery-item--portrait">
+            <div class="gallery-frame">
+              <div class="gallery-frame-corner gc-tl"></div>
+              <div class="gallery-frame-corner gc-tr"></div>
+              <div class="gallery-frame-corner gc-bl"></div>
+              <div class="gallery-frame-corner gc-br"></div>
+              <img src="images/couple.jpg" alt="Abhiram & Divyasri - Couple Photo" class="gallery-photo">
+              <div class="gallery-overlay">
+                <div class="gallery-overlay-text">
+                  <span class="gallery-names">Abhiram &amp; Divyasri</span>
+                  <span class="gallery-caption">💕 Together Forever</span>
+                </div>
+              </div>
+            </div>
+            <p class="gallery-label">The Blessed Couple</p>
+          </div>
+
+          <!-- Wedding Invitation Card -->
+          <div class="gallery-item gallery-item--card">
+            <div class="gallery-frame">
+              <div class="gallery-frame-corner gc-tl"></div>
+              <div class="gallery-frame-corner gc-tr"></div>
+              <div class="gallery-frame-corner gc-bl"></div>
+              <div class="gallery-frame-corner gc-br"></div>
+              <img src="images/card-telugu.png" alt="Wedding Invitation Card" class="gallery-photo">
+              <div class="gallery-overlay">
+                <div class="gallery-overlay-text">
+                  <span class="gallery-names">పరిణయ ఆహ్వానం</span>
+                  <span class="gallery-caption">🌸 Wedding Invitation</span>
+                </div>
+              </div>
+            </div>
+            <p class="gallery-label">Official Wedding Invitation</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </div><!-- end main-invitation -->
+
+  <!-- Javascript -->
+  <script src="main.js"></script>
+</body>
+</html>
